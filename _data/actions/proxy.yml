@@ -1,0 +1,9 @@
+name: proxy
+description: |
+  Intercepts the current transaction by forwarding the request to another web server using the proxy backend. The forwarding is carried out transparently to the HTTP client (i.e., there’s no external redirection taking place).
+version: 0.1
+actiongroup: Disruptive
+supported: false
+example: |
+  SecRule REQUEST_HEADERS:User-Agent "Test" log,id:129,proxy:http://honeypothost/
+  SecRule REQUEST_URI "@streq /test.txt" "phase:1,proxy:'http://${SERVER_NAME}:${SERVER_PORT}/test.txt',id:500005"

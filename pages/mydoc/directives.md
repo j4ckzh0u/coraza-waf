@@ -5,11 +5,11 @@ last_updated: July 16, 2020
 sidebar: mydoc_sidebar
 permalink: directives.html
 folder: mydoc
-summary: This document contains the detailed configurations for each directive. Most of the data was copied from the ModSecurity WIKI
 ---
 
 
-{% for dir in site.data.directives %}
+{% assign directives = site.data.directives | sort: name %}
+{% for dir in directives %}
 {% assign d = dir[1] %}
 ## {{ d.name }}
 {% if d.supported == false and d.deprecated != true %}

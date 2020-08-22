@@ -1,0 +1,10 @@
+name: deprecatevar
+supported: false
+description: |
+  Decrements numerical value over time, which makes sense only applied to the variables stored in persistent storage.
+actiongroup: Non-disruptive
+example: |
+  # The following example will decrement the counter by 60 every 300 seconds.
+  SecAction phase:5,id:108,nolog,pass,deprecatevar:SESSION.score=60/300
+data: |
+  Counter values are always positive, meaning that the value will never go below zero. Unlike expirevar, the deprecate action must be executed on every request.

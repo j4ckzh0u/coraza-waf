@@ -9,7 +9,8 @@ summary: This document contains the detailed configurations for each operators. 
 ---
 
 
-{% for op in site.data.operators %}
+{% assign operators = site.data.operators | sort: name %}
+{% for op in operators %}
 {% assign o = op[1] %}
 ## {{ o.name }}
 {% if o.deprecated == true %}

@@ -1,0 +1,9 @@
+name: status
+description: |
+  Specifies the response status code to use with actions deny and redirect.
+version: 0.1
+actiongroup: Data
+example: |
+  # Deny with status 403
+  SecDefaultAction "phase:1,log,deny,id:145,status:403"
+

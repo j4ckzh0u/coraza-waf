@@ -1,0 +1,10 @@
+name: pause
+description: |
+  Pauses transaction processing for the specified number of milliseconds. Supports macro expansion.
+version: 0.1
+actiongroup: Disruptive
+supported: false
+example: |
+  SecRule REQUEST_HEADERS:User-Agent "Test" "log,pause:5000,id:125"
+data: |
+  **Warning:** This feature can be of limited benefit for slowing down brute force authentication attacks, but use with care. If you are under a denial of service attack, the pause feature may make matters worse, as it will cause an entire process to sit idle until the pause is completed.

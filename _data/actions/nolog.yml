@@ -1,0 +1,7 @@
+name: nolog
+description: |
+  Prevents rule matches from appearing in both the audit logs.
+version: 0.1
+actiongroup: Non-disruptive
+example: |
+  SecRule REQUEST_HEADERS:User-Agent "Test" allow,nolog,id:121

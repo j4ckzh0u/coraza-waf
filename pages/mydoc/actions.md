@@ -5,7 +5,6 @@ last_updated: July 16, 2020
 sidebar: mydoc_sidebar
 permalink: actions.html
 folder: mydoc
-summary: This document contains the detailed configurations for each action. Most of the data was copied from the ModSecurity WIKI
 ---
 
 Each action belongs to one of five groups:
@@ -19,11 +18,15 @@ Note : Disruptive actions will NOT be executed if the SecRuleEngine is set to De
 * **Meta-data actions -** Meta-data actions are used to provide more information about rules. Examples include id, rev, severity and msg.
 * **Data actions** - Not really actions, these are mere containers that hold data used by other actions. For example, the status action holds the status that will be used for blocking (if it takes place).
 
-{% for act in site.data.actions %}
+{% assign actions = site.data.actions | sort: name %}
+{% for act in actions %}
 {% assign a = act[1] %}
 ## {{ a.name }}
 {% if a.deprecated == true %}
 {% include callout.html content="**Deprecated**: This Action is deprecated and won't work anymore." type="danger" %} 
+{% endif %}
+{% if a.supported == false %}
+{% include callout.html content="**Unsupported**: This Action is unsupported but will be added in the near future." type="danger" %} 
 {% endif %}
 **Description:** {{ a.description }}
 

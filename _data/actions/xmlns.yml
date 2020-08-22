@@ -1,0 +1,10 @@
+name: xmlns
+description: |
+  Configures an XML namespace, which will be used in the execution of XPath expressions.
+version: 0.1
+actiongroup: Data
+supported: false
+example: |
+  SecRule REQUEST_HEADERS:Content-Type "text/xml" "phase:1,id:147,pass,ctl:requestBodyProcessor=XML,ctl:requestBodyAccess=On, \
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  SecRule XML:/soap:Envelope/soap:Body/q1:getInput/id() "123" phase:2,deny,id:148

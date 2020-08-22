@@ -11,8 +11,6 @@ folder: mydoc
 
 Please be clear with your questions and provide as much information as you can, like: Configuration files, logs, outputs, screenshots.
 
-### Github Issue
-
-### Slack
-
-### Discord
+- [Github Issue](#)
+- [Slack](https://coraza.slack.com/)
+- [Discord](#)

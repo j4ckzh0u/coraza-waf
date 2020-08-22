@@ -13,18 +13,11 @@ Each HTTPS request must be sent to a valid HTTPS site with a trusted certificate
 
 **X-CW-Version:** Current Coraza WAF version.
 
-**X-CW-Key:** API credentials, can be set with the [SecRemoteApiKey](#) directive.
-
 All remote resources are loaded on startup, a reload will redownload everything.
 
 If a connection fails, it will fail or warn after N seconds with the [SecRemoteTimeout](#) directive.
 
 You can change the fail or skip behaviour with the [SecRemoteRulesFailAction](#) directive.
-
-You can create a reload marker path that is checked every 15 seconds with the [SecReloadMark](#).
-
-You can use a proxy server using the [SecRemoteProxy](#) directive with URI syntaxis.
-
 
 ## Reverse Proxy Filter
 
@@ -38,16 +31,11 @@ You can use a proxy server using the [SecRemoteProxy](#) directive with URI synt
 	-> corazaWafRemote("https://www.example.com/sample.conf", "API-KEY")
 ```
 
-## Directives
+## Directives supporting remote resources
 
 * SecRemoteRules
 
-## Rule Actions
-Each action that supports reading a file also supports loading remote files.
-
-
-
-## Rule Operators
+## Rule Operators supporting remote resources
 
 * pmFromFile
 * fuzzyHash

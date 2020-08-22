@@ -1,0 +1,18 @@
+name: sanitiseMatchedBytes
+description: |
+  Prevents the matched string in a variable from being logged to audit log. Each or a range of bytes of the named parameter(s) is replaced with an asterisk.
+version: 0.1
+actiongroup: Non-disruptive
+supported: false
+example: |
+  # Detect credit card numbers in parameters and 
+  # prevent them from being logged to audit log 
+  SecRule ARGS "@verifyCC \d{13,16}" "phase:2,id:133,nolog,capture,pass,msg:'Potential credit card number in request',sanitiseMatchedBytes"
+  SecRule RESPONSE_BODY "@verifyCC \d{13,16}" "phase:4,id:134,t:none,log,capture,block,msg:'Potential credit card number is response body',sanitiseMatchedBytes:0/4"
+data: |
+  This action can be used to sanitise arbitrary transaction elements when they match a condition. For example, the example below will sanitise the credit card number.
+
+  - sanitiseMatchedBytes -- This would x out only the bytes that matched.
+  - sanitiseMatchedBytes:1/4 -- This would x out the bytes that matched, but keep the first byte and last 4 bytes
+
+  **Note:** The sanitize actions affect only the data as it is logged to audit log. High-level debug logs may contain sensitive data. You must use capture action with sanitiseMatchedBytes, so the operator must support capture action. ie: @rx, @verifyCC.

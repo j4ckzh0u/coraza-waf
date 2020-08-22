@@ -1,0 +1,9 @@
+name: msg
+description: |
+  Assigns a custom message to the rule or chain in which it appears. The message will be logged along with every alert.
+version: 0.1
+actiongroup: Meta-data
+example: |
+  SecRule &REQUEST_HEADERS:Host "@eq 0" "log,id:60008,severity:2,msg:'Request Missing a Host Header'"
+data: |
+  **Note:** The msg information appears in the audit log files and is not sent back to the client in response headers.

@@ -1,0 +1,13 @@
+name: initcol
+description: |
+  Initializes a named persistent collection, either by loading data from storage or by creating a new collection in memory.
+version: 0.1
+actiongroup: Non-disruptive
+example: |
+  # The following example initiates IP address tracking, which is best done in phase 1:
+  SecAction phase:1,id:116,nolog,pass,initcol:ip=%{REMOTE_ADDR}
+data: |
+  Collections are loaded into memory on-demand, when the initcol action is executed. A collection will be persisted only if a change was made to it in the course of transaction processing.
+
+  See the "Persistent Storage" section for further details.
+

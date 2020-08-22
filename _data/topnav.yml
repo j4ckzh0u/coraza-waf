@@ -4,7 +4,7 @@ topnav:
 - title: Topnav
   items:
     - title: GitHub
-      external_url: https://github.com/jptosso/corazawaf
+      external_url: https://github.com/jptosso/coraza-waf
 
 #Topnav dropdowns
 topnav_dropdowns:
@@ -16,5 +16,5 @@ topnav_dropdowns:
           external_url: ...
         - title: Coraza WAF Slack
           external_url: ...
-        - title: Coraza WAF Overflow
-          external_url: http://stackoverflow.com/questions/tagged/jekyll
+        - title: Coraza WAF Stack Overflow
+          external_url: ...

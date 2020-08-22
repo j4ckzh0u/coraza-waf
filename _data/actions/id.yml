@@ -1,0 +1,7 @@
+name: id
+description: |
+  Configures a collection variable to expire after the given time period (in seconds).
+version: 0.1
+actiongroup: Meta-data
+example: |
+  Assigns a unique ID to the rule or chain in which it appears. This action is mandatory and must be numeric.

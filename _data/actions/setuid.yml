@@ -1,0 +1,10 @@
+name: setuid
+description: |
+  Special-purpose action that initializes the USER collection using the username provided as parameter.
+version: 0.1
+actiongroup: Non-disruptive
+supported: false
+example: |
+  SecRule ARGS:username ".*" "phase:2,id:137,t:none,pass,nolog,noauditlog,capture,setvar:session.username=%{TX.0},setuid:%{TX.0}"
+data: |
+  After initialization takes place, the variable USERID will be available for use in the subsequent rules. This action understands application namespaces (configured using SecWebAppId), and will use one if it is configured.

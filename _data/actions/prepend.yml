@@ -1,0 +1,10 @@
+name: prepend
+description: |
+  Prepends the text given as parameter to response body. Content injection must be enabled (using the SecContentInjection directive). No content type checks are made, which means that before using any of the content injection actions, you must check whether the content type of the response is adequate for injection.
+version: 0.1
+actiongroup: Non-disruptive
+supported: false
+example: |
+  SecRule RESPONSE_CONTENT_TYPE ^text/html \ "phase:3,nolog,pass,id:128,prepend:'Header<br>'"
+data: |
+  **Warning:** Although macro expansion is allowed in the injected content, you are strongly cautioned against inserting user defined data fields int output. Doing so would create a cross-site scripting vulnerability.

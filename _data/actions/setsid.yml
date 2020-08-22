@@ -1,0 +1,13 @@
+name: setsid
+description: |
+  Special-purpose action that initializes the SESSION collection using the session token provided as parameter.
+version: 0.1
+actiongroup: Non-disruptive
+supported: false
+example: |
+  # Initialise session variables using the session cookie value 
+  SecRule REQUEST_COOKIES:PHPSESSID !^$ "nolog,pass,id:138,setsid:%{REQUEST_COOKIES.PHPSESSID}"
+data: |
+  **Note:** After the initialization takes place, the variable SESSION will be available for use in the subsequent rules. This action understands application namespaces (configured using SecWebAppId), and will use one if it is configured.
+
+  Setsid takes an individual variable, not a collection. Variables within an action, such as setsid, use the format [collection].[variable] .

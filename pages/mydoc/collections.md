@@ -53,9 +53,11 @@ Note: There are reserved names for persistent collections, these are: GLOBAL, RE
 
 ## Persistent Collections
 
-Persistent collections are an abstract type of collection that is managed by the PersistentCollection engine. The system will catch them and attempt to get them from Redis.
+Persistent collections are an abstract type of collection that is managed by the PersistentCollection engine. The system will load them and save them to the persistence engine.
 
-Persistent collections suport multi tenancy and can handle race conditions by locking fields.
+Persistent collections suport multi tenancy.
+
+Persistent collections are not initialied by default and they must be called using the [initcol](#) or [setsid](#) action.
 
 At this time it is only possible to have five collections in which data is stored persistently (i.e. data available to multiple requests). These are: GLOBAL, RESOURCE, IP, SESSION and USER.
 
@@ -80,7 +82,7 @@ To create a collection to hold session variables (SESSION) use action setsid. To
 
 Collection names are structured as following:
 ```
-redis> GET col-{collection-name}-{key}
+redis> GET col-{webappid}-{collection-name}-{key}
 {
 	"create_time": "",
 	"is_new": "",
@@ -91,11 +93,4 @@ redis> GET col-{collection-name}-{key}
 	"update_rate": "",
 	"some_custom_field": ""
 }
-```
-
-Collection locks
-```
-redis> GET col-lock-{collection-name}-{key}
-{timestamp}
-
 ```

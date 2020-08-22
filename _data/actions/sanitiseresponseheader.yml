@@ -1,0 +1,11 @@
+name: sanitiseResponseHeader
+description: |
+  Prevents a named response header from being logged to audit log. Each byte of the named response header is replaced with an asterisk.
+version: 0.1
+actiongroup: Non-disruptive
+supported: false
+example: |
+  # This will sanitise the Set-Cookie data sent to the client.
+  SecAction "phase:3,nolog,pass,id:136,sanitiseResponseHeader:Set-Cookie"
+data: |
+  **Note:** The sanitize actions affect only the data as it is logged to audit log. High-level debug logs may contain sensitive data.

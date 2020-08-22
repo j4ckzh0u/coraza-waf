@@ -1,0 +1,11 @@
+name: sanitiseArg
+description: |
+  Prevents sensitive request parameter data from being logged to audit log. Each byte of the named parameter(s) is replaced with an asterisk.
+version: 0.1
+actiongroup: Non-disruptive
+supported: false
+example: |
+  # Never log passwords 
+  SecAction "nolog,phase:2,id:131,sanitiseArg:password,sanitiseArg:newPassword,sanitiseArg:oldPassword"
+data: |
+  **Note:** The sanitize actions affect only the data as it is logged to audit log. High-level debug logs may contain sensitive data.

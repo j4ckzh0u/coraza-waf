@@ -34,11 +34,7 @@ entries:
 
     - title: License
       url: /license.html
-      output: web, pdf     
-
-    - title: Differences with ModSecurity
-      url: /differences-modsecurity.html
-      output: web, pdf       
+      output: web, pdf        
 
   - title: Release Notes
     output: web, pdf

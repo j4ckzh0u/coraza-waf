@@ -1,0 +1,10 @@
+name: setrsc
+description: |
+  Special-purpose action that initializes the RESOURCE collection using a key provided as parameter.
+version: 0.1
+actiongroup: Non-disruptive
+supported: false
+example: |
+  SecAction "phase:1,pass,id:3,log,setrsc:'abcd1234'"
+data: |
+  This action understands application namespaces (configured using SecWebAppId), and will use one if it is configured.
